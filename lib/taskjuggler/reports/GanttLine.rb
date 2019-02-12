@@ -143,7 +143,13 @@ class TaskJuggler
       scopeProperty = @query.scopeProperty
       taskStart = property['start', @query.scenarioIdx] || project['start']
       taskEnd = property['end', @query.scenarioIdx] || project['end']
-
+	  taskResources = property['assignedresources', @query.scenarioIdx]
+	  
+	  taskResourcesStr = ''
+	  taskResources.each do |resource|
+		taskResourcesStr = taskResourcesStr + resource.fullId
+      end
+	  
       if scopeProperty
         # The task is nested into a resource. We show the work the resource is
         # doing for this task relative to the work the resource is doing for
@@ -217,7 +223,7 @@ class TaskJuggler
                  !rollupExpr.eval(@query))
             GanttContainer.new(@height, xStart, xEnd, @y)
           else
-            GanttTaskBar.new(@query, @height, xStart, xEnd, @y)
+            GanttTaskBar.new(@query, @height, xStart, xEnd, @y, taskResourcesStr)
           end
 
         # Make sure the legend includes the Gantt symbols.

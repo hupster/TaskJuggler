@@ -26,12 +26,13 @@ class TaskJuggler
     # Create a GanttContainer object based on the following information: _line_
     # is a reference to the GanttLine. _xStart_ is the left edge of the task in
     # chart coordinates. _xEnd_ is the right edge.
-    def initialize(query, lineHeight, xStart, xEnd, y)
+    def initialize(query, lineHeight, xStart, xEnd, y, resAlloc)
       @query = query
       @lineHeight = lineHeight
       @start = xStart
       @end = xEnd
       @y = y
+	  @resalloc = resAlloc
     end
 
     # Return the point [ x, y ] where task start dependency lines should start
@@ -86,7 +87,7 @@ class TaskJuggler
 
       # The we draw the filling.
       html << rectToHTML(xStart + 1, yCenter - @@size + 1, width - 2,
-                         2 * @@size - 2, 'taskbar')
+                         2 * @@size - 2, 'taskbar' + @resalloc)
       # And then the progress bar. If query is null we assume 50% completion.
       if @query
         @query.attributeId = 'complete'

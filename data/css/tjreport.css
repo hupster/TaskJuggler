@@ -393,7 +393,23 @@ p.tj_journal {
   position:absolute;
 }
 .taskbar {
+  background-color:#EE0000;
+  position:absolute;
+}
+.taskbarRH {
   background-color:#2f57ea;
+  position:absolute;
+}
+.taskbarTE {
+  background-color:#00ee28;
+  position:absolute;
+}
+.taskbarHK {
+  background-color:#ec00ee;
+  position:absolute;
+}
+.taskbarRW {
+  background-color:#ecee00;
   position:absolute;
 }
 .progressbar {

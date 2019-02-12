@@ -57,7 +57,7 @@ class TaskJuggler
 
         row << ganttItemToHTML(GanttContainer.new(15, 10, 35, 0),
                                'Container Task', 40)
-        row << ganttItemToHTML(GanttTaskBar.new(nil, 15, 5, 35, 0),
+        row << ganttItemToHTML(GanttTaskBar.new(nil, 15, 5, 35, 0, ''),
                                'Normal Task', 40)
         row << ganttItemToHTML(GanttMilestone.new(15, 10, 0), 'Milestone', 20)
         row << XMLElement.new('td', 'class' => 'tj_legend_spacer')
